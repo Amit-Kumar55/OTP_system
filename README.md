@@ -1,18 +1,18 @@
 ******\*\*******\*\*******\*\******* OTP Verification System ******\*\*******\*\*\*\*******\*\*******
 
-# Installation
+* Installation
 
-# Prerequisites
+* Prerequisites
 
-# PHP 8.1+
+* PHP 8.1+
 
-# Laravel 10+
+* Laravel 10+
 
-# Composer
+* Composer
 
-# Livewire 3+ with Volt
+* Livewire 3+ with Volt
 
-# Alpine.js
+* Alpine.js
 
 1. Steps
    Clone the repository:
@@ -54,11 +54,11 @@
 Testing
 To test the OTP verification system, follow these steps:
 
-# Run tests using PHPUnit:
+* Run tests using PHPUnit:
 
 php artisan test
 
-# Test OTP Generation and Verification:
+* Test OTP Generation and Verification:
 
 $user = User::factory()->create();
 $otp = Otp::create([
@@ -70,44 +70,44 @@ $otp = Otp::create([
 $response = $this->actingAs($user)->post('/verify-otp', ['otp' => '123456']);
 $response->assertSessionHas('message', 'OTP Verified Successfully!');
 
-# Assumptions
+* Assumptions
 
-# The user must be authenticated before requesting an OTP.
+* The user must be authenticated before requesting an OTP.
 
-# OTPs expire after 15 minutes.
+* OTPs expire after 15 minutes.
 
-# Only numeric OTPs (6 digits) are allowed.
+* Only numeric OTPs (6 digits) are allowed.
 
-# The OTP can be sent via SMS or Email.
+* The OTP can be sent via SMS or Email.
 
-# Livewire and Volt are used for handling OTP verification.
+* Livewire and Volt are used for handling OTP verification.
 
-# The system must prevent brute-force attacks with rate-limiting
+* The system must prevent brute-force attacks with rate-limiting
 
-# Additional Features
+* Additional Features
 
-# Auto-focus & auto-submit on OTP input fields.
+* Auto-focus & auto-submit on OTP input fields.
 
-# Clipboard paste support for OTP input.
+* Clipboard paste support for OTP input.
 
-# Real-time error messages for validation failures.
+* Real-time error messages for validation failures.
 
-# Session-based flash messages for feedback.
+* Session-based flash messages for feedback.
 
-# Secure one-time use OTP verification.
+* Secure one-time use OTP verification.
 
-# Technical Decisions
+* Technical Decisions
 
-# Livewire with Volt: Used to create a seamless OTP verification experience without full-page reloads.
+* Livewire with Volt: Used to create a seamless OTP verification experience without full-page reloads.
 
-# Middleware for authentication: Ensured routes requiring authentication use auth middleware.
+* Middleware for authentication: Ensured routes requiring authentication use auth middleware.
 
-#Service Class for OTP Management: Moved OTP generation and verification logic to OtpService.php for maintainability.
+*Service Class for OTP Management: Moved OTP generation and verification logic to OtpService.php for maintainability.
 
-# Route Definition: Used Volt::route('/otp-verification', 'otp-verification'); to define OTP routes.
+* Route Definition: Used Volt::route('/otp-verification', 'otp-verification'); to define OTP routes.
 
-# Error Handling & Debugging: Fixed issues related to Auth::user() returning null and RouteNotFoundException for Livewire.
+* Error Handling & Debugging: Fixed issues related to Auth::user() returning null and RouteNotFoundException for Livewire.
 
-# Layout Fixes: Ensured resources/views/layouts/app.blade.php properly included @livewireStyles and @livewireScripts.
+* Layout Fixes: Ensured resources/views/layouts/app.blade.php properly included @livewireStyles and @livewireScripts.
 
-# Security Measures: Implemented one-time usage and expiration checks for OTPs.
+* Security Measures: Implemented one-time usage and expiration checks for OTPs.
