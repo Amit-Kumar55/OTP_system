@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 // ✅ Livewire Volt OTP Verification Route
 Volt::route('/otp-verification', 'otp-verification');
 
